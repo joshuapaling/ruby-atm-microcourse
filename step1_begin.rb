@@ -9,6 +9,10 @@
 # my_array << 5
 # my_array << 7
 # my_array.inspect # (prints out [5, 7])
+#
+# times method:
+# 3.times { do_something }
+# will call do_something 3 times!
 
 def withdraw(amount)
   if amount <= 0 # this deals with some of the situations...
