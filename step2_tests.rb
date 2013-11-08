@@ -12,7 +12,7 @@ describe 'atm' do
     [40, [10, 10, 10, 10]],
   ].each do |input, expected|
     it "should convert the number #{input} to #{expected}" do
-      atm(input).must_equal expected
+      withdraw(input).must_equal expected
     end
   end
 end

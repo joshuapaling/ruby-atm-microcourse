@@ -4,9 +4,13 @@ In this exercise you will program a function to handle withdrawing money from an
 
 We'll start *very* simple, then add increasingly complex restrictions as we go. Each step should provide opportunities to discuss certain aspects of programming theory, code structure, etc.
 
-Unless otherwise stated, you're atm function should return an array of notes which exactly match the amount parameter (eg. 60 might return [20, 20, 20]), or false if the amount cannot be matched exactly (eg. 27 returns false)
+Unless otherwise stated, you're atm function should return an array of notes which exactly match the amount parameter, or false if the amount cannot be matched exactly.
+eg 1. withdraw(27) returns false
+eg 2. withdraw(70) might return [50, 20]
 
-For each step, we'll have a single starting-point file, including (failing) tests. Your job will be to fill in the blanks until the tests pass. Feel free to skip the first few steps if they are too easy.
+For each step, we'll have a single starting-point file, including (failing) tests. Your job will be to fill in the blanks until the tests pass. If the first steps are too easy, wiz through them and help a beginner.
+
+We provide an example solution for each step. It's just an example - not THE solution. (For several steps, a typical sub-par solution is intentionally given. You might discuss why it's sub-par, and how it could be improved.)
 
 To run the tests:
 
@@ -33,4 +37,10 @@ To run the tests:
 * what is the most future-proof solution?
 * read, but don't do, step 5. If your step 4 code is great, step 5 should take a few seconds. Will it? Refactor your step 4 code to be as ready as possible for step 5.
 
-**Step 5** Imagine you're now able to specify which denominations of note are available for a given withdrawal.
+**Step 5** Imagine you're now able to specify a second parameter (an array), specifying the denominations of (Australian) note available for that withdrawal. eg. atm(220, [50, 20, 5]) says to withdraw $220, using only $50, $20 and $5 notes.
+
+**Step 6** Lets say you now introduce some bizarre, non-round denominations. eg, $9, $14, and $23 notes. Does your function still work? Can it tell when to return false? Refactor so that it works for any denomination.
+
+** Final Talking Points **
+* Lets say you're little community bank ATM company quickly expands to become a global success. How suitable is your code for dealing with all possible denominations of currency, in all nations of the world?
+* What did you learn? Can you think of any take-home best practices or principals? Is code structure important? Why?
