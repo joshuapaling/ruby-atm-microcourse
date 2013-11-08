@@ -14,8 +14,8 @@ We provide an example solution for each step. It's just an example - not THE sol
 
 To run the tests:
 
-- Using sublime: Press command-B (Or select Tools -> Build)
-- Using console: ruby filename.rb
+- Using sublime: With your solution open, Press command-B (Or select Tools -> Build)
+- Using console eg: ruby step1_solution.rb
 
 
 **Step 1** Imagine an ATM that holds only $5 notes. Write a function to return an array of $5 notes, for a given amount. (eg. 15 returns [5, 5, 5])
@@ -30,7 +30,7 @@ To run the tests:
 
 **Step 3** Imagine your ATM now holds $5 and $10. People want as few notes as possible (eg. 25 returns [10, 10, 5])
 
-**Step 4** Imagine your ATM now holds $50 and $20 notes, only. Modify your function to accommodate this.
+**Step 4** Imagine your ATM now holds $50 and $20 notes, only. Modify your function to accommodate this. (If your function gets long, feel free to break it up)
 
 **Step 3/4 discussion points**
 * how many lines did you have to change, going from 3 to 4? What if we changed the requirements again? (eg. $100, $50 and $20 notes)? Could you do this in a single line?
