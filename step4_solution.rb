@@ -5,6 +5,7 @@
 # to tell if an array is empty: my_array.empty?
 # to tell if an array is not empty: !my_array.empty?
 # to remove the first element of an array: my_array.shift
+# the 'floor' method rounds a float down. Eg. 2.8.floor # return 2
 # If your function calls a sub-function, keep in mind
 # Ruby has no concept of 'pass by value'. Variables are always a reference to an object.
 
@@ -33,7 +34,7 @@ def try_with_denoms(amount, denoms)
   result = []
   remainder = amount
   denoms.each do |denom|
-    num_notes = remainder / denom
+    num_notes = (remainder / denom).floor
     num_notes.times { result << denom }
     remainder = remainder % denom
   end

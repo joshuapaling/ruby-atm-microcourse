@@ -1,5 +1,6 @@
-# Imagine the ATM allows a second parameter, an array, containing the denominations of note to allow
-# eg. withdraw(65, [50, 20, 5]) would return [20, 20, 20, 5]
+# Imagine the ATM has only $50 and $20 denominations. Modify your solution to accommodate this.
+# Hint: before coding, consider the case of withdrawing $160.
+# What should the result be?
 
 def withdraw(amount, denoms)
   if amount <= 0 # this deals with some of the situations...
