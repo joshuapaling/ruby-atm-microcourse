@@ -15,7 +15,7 @@ We provide an example solution for each step. It's just an example - not THE sol
 To run the tests:
 
 - Using sublime: With your solution open, Press command-B (Or select Tools -> Build)
-- Using console eg: ruby step1_solution.rb
+- Using console eg: ruby step1_begin.rb
 
 
 **Step 1** Imagine an ATM that holds only $5 notes. Write a function to return an array of $5 notes, for a given amount. (eg. 15 returns [5, 5, 5])
@@ -37,10 +37,16 @@ To run the tests:
 * what is the most future-proof solution?
 * read, but don't do, step 5. If your step 4 code is great, step 5 should take a few seconds. Will it? Refactor your step 4 code to be as ready as possible for step 5.
 
-**Step 5** Imagine you're now able to specify a second parameter (an array), specifying the denominations of (Australian) note available for that withdrawal. eg. atm(220, [50, 20, 5]) says to withdraw $220, with only $50, $20 and $5 notes available.
+**Step 5** Imagine you're now able to specify a second parameter (an array), specifying the denominations of (Australian) note available for that withdrawal. eg. atm(220, [50, 20, 5]) says to withdraw $220, with only $50, $20 and $5 notes available. Assume people prefer the highest possible denomination, where possible. Eg, withdraw(65, [50, 20, 5]) should return [50, 5, 5, 5] rather than [20, 20, 20, 5]
 
 **Step 6** Lets say you now introduce some bizarre, non-round denominations. eg, $23, $14, and $9 notes. Does your function still work? Can it tell when to return false? What about if the denominations aren't specified in descending order? Refactor so that it works for any denomination.
 
+**Step 7** Note that in many cases, an amount can be made up of many different denominations (eg. $20 could be two $10s, or one $10 and two $5s, or four $5s, etc). Change your function so that it returns an array of ALL possible combinations, rather than just a single combination. (So, you'll be returning an array of arrays.)
+
 ** Final Talking Points **
 * Lets say you started a little ATM company, which quickly expanded to become a global success. How suitable is your code for dealing with all possible denominations of currency, in all nations of the world?
+* What about handling situations where certain denominations of notes are out of stock?
 * What did you learn? Can you think of any take-home best practices or principals? Is code structure important? Why? Given a particular solution *works*, what makes it 'good' or 'bad'?
+
+** Optional Homework **
+Use your withdraw() function as the basis for creating an ATM class, which can be stocked with different notes, and which runs out of certain notes as they are withdrawn.
