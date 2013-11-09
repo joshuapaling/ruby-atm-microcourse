@@ -35,7 +35,7 @@ To run the tests:
 
 **Step 4** Imagine your ATM now holds $20, $10 and $5 notes. Modify your function to accommodate this. (If your function gets long, feel free to break it up)
 
-Note that at this point, each higher denomination can be made up by an even number of the lower denomination. (eg. $20 = 2 * $10). Things get much trickier when that's not the case (eg, consider withdrawing $160, using only $50 and $20 notes. What would your function try to do? What should it to?). For this step, we'll intentionally not deal with this case to make it easier.
+*Note that at this point, each higher denomination can be made up by an even number of the lower denomination. (eg. $20 = 2 * $10). Things get much trickier when that's not the case (eg, consider withdrawing $160, using only $50 and $20 notes. What would your function try to do? What should it to?). For this step, we'll intentionally not deal with this case to make it easier.*
 
 **Step 3/4 discussion points**
 * how many lines did you have to change, going from 3 to 4? What if we changed the requirements again? (eg. $100, $20 and $10 notes)? Could you do this in a single line?

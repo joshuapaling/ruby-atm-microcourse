@@ -1,5 +1,5 @@
-# Imagine the ATM contains $50 and $20 notes, and refine your function accordingly.
-# Eg. withdraw(90) would return [50, 20, 20]
+# Imagine the ATM contains $20, $10 and $5 notes, and refine your function accordingly.
+# Eg. withdraw(45) would return [20, 20, 5]
 #
 # TIPS
 # to tell if an array is empty: my_array.empty?
@@ -9,7 +9,7 @@
 # Ruby has no concept of 'pass by value'. Variables are always a reference to an object.
 
 def withdraw(amount)
-  denoms = [50, 20]
+  denoms = [20, 10, 5]
   if amount <= 0 # this deals with some of the situations...
     return false
   end
