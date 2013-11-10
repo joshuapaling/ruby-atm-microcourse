@@ -43,7 +43,7 @@ To run the tests:
 * what is the most future-proof solution?
 
 ** Step 5**
-Let's tackle the tricker case we mentioned, where each note isn't necessarily a multiple of the next lowest note. We'll assume we have only $50 and $20 notes available. (Hint: Before writing any code, consider withdrawing $160 - what should it return?)
+Let's tackle the tricker case we mentioned, where each note isn't necessarily a multiple of the next lowest note. We'll assume we have only $50 and $20 notes available - but we'll be mixing it up more in step 7, so try to keep your code future-proof! (Hint: Before writing any code, consider withdrawing $160 - what should it return?)
 
 **Step 5 discussion points**
 * How many different solutions did the group come up with? Which is best? Why?
