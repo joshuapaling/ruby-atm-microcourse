@@ -58,6 +58,9 @@ Imagine you're now able to pass in a second parameter (an array), specifying the
 ###Step 7
 Lets say you now introduce some bizarre, non-round denominations. eg, $23, $14, and $9 notes. Does your function still work? Can it tell when to return false? What about if the denominations aren't specified in descending order? Refactor so that it works for any denomination, in any order.
 
+###Step 7 discussion points
+* how much code did you have to change?
+
 ###Step 8 - Extra Challenge
 Note that in many cases, an amount could be made up of many different denominations (eg. $20 could be two $10s, or one $10 and two $5s, or four $5s, etc). Change your function so that it returns an array of ALL possible combinations, rather than just a single combination. (So, you'll be returning an array of arrays.)
 

@@ -1,8 +1,13 @@
-# Imagine you're able to pass in a second parameter, an array,
-# specifying the denominations of Australian note available for withdrawal.
-# eg. the second parameter might be [100, 20, 5], or [50, 20, 10], or something like that
+
+# Imagine you're second parameter now has to handle ANY, bizarre,
+# non-round denominations. eg, $23, $14, and $9 notes.
+# And imagine you can pass them in any order - eg. [14, 23, 9]
+# TIPS:
+# my_array.sort! will sort a numeric array in ascending order.
+# my_array.reverse! will reverse the direction of that array.
 
 def withdraw(amount, denoms)
+  denoms.sort!.reverse!
   if amount <= 0 # this deals with some of the situations...
     return false
   end
@@ -51,4 +56,4 @@ def try_with_single_denom(amount, denom)
     return result
 end
 
-require './step6_tests.rb'
+require './step7_tests.rb'
