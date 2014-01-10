@@ -51,4 +51,29 @@ def try_with_single_denom(amount, denom)
     return result
 end
 
-require './step5_tests.rb'
+# import required testing libraries
+require 'minitest/spec'
+require 'minitest/autorun'
+
+# BELOW ARE THE TESTS FOR AUTOMATICALLY CHECKING YOUR SOLUTION.
+# THESE NEED TO BE REPLACED AFTER EACH STEP.
+describe 'atm' do
+  [
+    [-1, false],
+    [0, false],
+    [7, false],
+    [29, false],
+    [135, false],
+    [70, [50, 20]],
+    [80, [20, 20, 20, 20]],
+    [90, [50, 20, 20]],
+    [120, [50, 50, 20]],
+    [130, [50, 20, 20, 20, 20]],
+    [160, [50, 50, 20, 20, 20]],
+    [200, [50, 50, 50, 50]]
+  ].each do |amount, expected|
+    it "should return #{expected} when $#{input} is withdrawn" do
+      withdraw(amount).must_equal expected
+    end
+  end
+end

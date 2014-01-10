@@ -22,4 +22,23 @@ def withdraw(amount)
   end
 end
 
-require './step3_tests.rb'
+# import required testing libraries
+require 'minitest/spec'
+require 'minitest/autorun'
+
+# BELOW ARE THE TESTS FOR AUTOMATICALLY CHECKING YOUR SOLUTION.
+# THESE NEED TO BE REPLACED AFTER EACH STEP.
+describe 'atm' do
+  [
+    [-1, false],
+    [0, false],
+    [7, false],
+    [20, [10, 10]],
+    [25, [10, 10, 5]],
+    [35, [10, 10, 10, 5]],
+  ].each do |input, expected|
+    it "should return #{expected} when $#{input} is withdrawn" do
+      withdraw(input).must_equal expected
+    end
+  end
+end
