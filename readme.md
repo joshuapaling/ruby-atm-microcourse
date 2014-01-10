@@ -11,7 +11,7 @@ Each step has pre-built tests, which you can use to verify your code works as ex
 
 a) Copy the tests for that step into your code, replacing the tests from the previous step.
 
-b) Modify your code, and re-run the tests, until all tests pass
+b) Modify your code, and re-run the tests, until all tests pass. *Note: some steps have tips at the bottom - make sure to read those.*
 
 c) If there are discussion points, spend a few minutes talking about them with your pairing partner.
 
@@ -62,6 +62,26 @@ describe 'atm' do
     end
   end
 end
+```
+
+** Tips for this step**
+
+The modulus operator, `%` gets the remainder of a division. So, `5 % 2 == 1` is true (five divided by two has a remainder of 1)
+
+`[]` defines an empty array. `[10, 20]` defines an array with two elements (10 and 20)
+
+`<<` the shovel operator adds an element to an array. Eg. `[10, 20] << 30` will add 30 to the array, resulting in `[10, 20, 30]`
+
+the `times` method executes a block of code several times - eg. `5.times { puts 'hello' }` will print 'hello' 5 times.
+
+Bringing it all together:
+
+```ruby
+my_array = [] # create an empty array and store it in my_array
+my_array << 20 # now my array contains [20]
+my_array << 30 # now my_array contains [20, 30]
+remainder = 13 % 5 # remainder is 2
+remainder.times { my_array << 5 } # now my_array contains [20, 30, 5, 5, 5]
 ```
 
 ### Step 2
@@ -120,6 +140,19 @@ describe 'atm' do
 end
 ```
 
+** Tips for this step**
+
+The `floor` method rounds a number down to the nearest whole integer.
+
+Example:
+
+```ruby
+my_number = 3.87.floor # my_number contains 3
+
+my_number = (25/10).floor
+# my_number now contains 2, because 25/10 = 2.5, and floor will round that down to 2.
+```
+
 ### Step 4
 Imagine your ATM now holds $20, $10 and $5 notes. Modify your function to accommodate this. (If your function gets long, feel free to break it up).
 
@@ -147,16 +180,30 @@ describe 'atm' do
 end
 ```
 
+** Tips for this step**
+
+To tell if an array is empty: `my_array.empty?`
+
+To tell if an array is not empty: `!my_array.empty?`
+
+To remove the first element off an array: `my_array.shift`. Eg, `[10, 20, 30].shift` results in `[20, 30]`
+
+If your function calls a sub-function, keep in mind that Ruby has no concept of 'pass by value'. Variables are always a reference to an object.
+
 ### Step 3/4 Discussion Points
 * How many lines did you have to change, going from 3 to 4?
 * What if we changed the available notes again (but still intentionally not dealing with the trickier case mentioned above)? Eg. $100, $20 and $10 notes - Could you do this in a single line?
 * Refactor your code so that you could change to $100, $20 and $10 notes, by changing a single line.
 * What is the most future-proof solution?
 
-### Step 5a - Extra Challenge
-Let's tackle the tricker case we mentioned, where each note isn't necessarily a multiple of the next lowest note. We'll assume we have only $50 and $20 notes available - but we'll be mixing it up more in step 7, so try to keep your code future-proof! (Hint: Before writing any code, consider withdrawing $60 - what should it return? What process does it need to go through to arrive at that result?)
+## Extra Challenges
 
-*Note: to do this step, recursion is needed. If anyone is new to recursion, the teacher should explain using a simple 'count down from 10 recursively' example (Yes, you could do this with a loop instead, but that's not the point). Explain the problem of infinite nesting, and the need for an exit condition.*
+### Step 5a - Extra Challenge
+Let's tackle the tricker case we mentioned, where each note isn't necessarily a multiple of the next lowest note. For this step, we'll assume we have only $50 and $20 notes available - but we'll be mixing it up more later, so try to keep your code future-proof!
+
+**Hint:** Before writing any code, consider withdrawing the following amounts: $60, $80, $110, $160 - what should it return? What process does it need to go through to arrive at that result? What will your existing code try to do? Consider writing a brief solution in pseudo-code, first.
+
+Note: This step could be solved with recursion. If you've never used recursion, you may like to ask a mentor about it. *(Mentors: you might like to use fibonacci as an example. Touch on the problem of infinite nesting, and the need for an exit condition.)*
 
 **Tests:** Replace the tests from the previous step with the tests below, and modify your code until these new tests pass.
 
