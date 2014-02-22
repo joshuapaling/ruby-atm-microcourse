@@ -29,12 +29,6 @@ d) Some steps have discussion points. Discuss them - they'll help you moving for
 
 e) Repeat.
 
-### To run the tests:
-
-**Using Sublime Text:** With your solution open, Press command-B (Or select Tools -> Build)
-
-**Using console:** `cd /path/to/directory/` and then run `ruby atm.rb`
-
 ### Step 1
 
 Imagine an ATM that holds only $5 notes. Write a function that returns `true` if an amount can be returned, and `false` otherwise.
