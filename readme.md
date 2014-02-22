@@ -131,7 +131,7 @@ describe 'atm' do
 end
 ```
 
-### Step 1/2 Discussion Points
+### Step 3/4 Discussion Points
 * How many lines did you have to change? What if we now restricted it to another single denomination (eg. $20 notes)? How many lines would you have to change this time?
 * Refactor your code so such that you could switch to only $20 notes, by changing a single line
 * Did you initially use magic numbers?

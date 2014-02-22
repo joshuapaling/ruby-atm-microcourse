@@ -1,5 +1,6 @@
-# Imagine the ATM contains $10 and $5 notes, and refine your function accordingly.
-# Eg. withdraw(25) would return [10, 10, 5]
+# Imagine an ATM with ONLY $5 notes. It accepts a single parameter - amount.
+# Return false if the amount cannot be given in $5 notes (eg. 23, 36).
+# Otherwise, return an array of notes - eg. withdraw(15) would return [5, 5, 5]
 
 def withdraw(amount)
   if amount <= 0 # this deals with some of the situations...
@@ -8,13 +9,9 @@ def withdraw(amount)
   if amount % 5 > 0
     return false
   else
-    # we can definitely return a result!
     result = []
-    ten_count = (amount / 10).floor
-    remainder = amount % 10
-    five_count = (remainder / 5).floor
-    ten_count.times { result << 10 }
-    five_count.times { result << 5 }
+    num_notes = amount / 5
+    num_notes.times { result << 5 }
     return result
   end
 end
@@ -29,10 +26,10 @@ describe 'atm' do
   [
     [-1, false],
     [0, false],
-    [7, false],
-    [20, [10, 10]],
-    [25, [10, 10, 5]],
-    [35, [10, 10, 10, 5]],
+    [1, false],
+    [43, false],
+    [20, [5, 5, 5, 5]],
+    [35, [5, 5, 5, 5, 5, 5, 5]],
   ].each do |input, expected|
     it "should return #{expected} when $#{input} is withdrawn" do
       withdraw(input).must_equal expected
