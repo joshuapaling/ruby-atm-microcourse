@@ -3,9 +3,10 @@
 # Otherwise, return false
 
 def withdraw(amount)
+  note_available = 5
   if amount <= 0 # this deals with some of the situations...
     return false
-  elsif amount % 5 > 0
+  elsif amount % note_available > 0
     return false
   else
     return true

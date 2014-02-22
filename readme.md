@@ -36,22 +36,6 @@ Imagine an ATM that holds only $5 notes. Write a function that returns `true` if
 
 *Eg. 2 `withdraw(18)` should return `false`, because $18 cannot be made up of $5 notes*
 
-### Step 2
-
-Now, modify your function so that if the amount *can* be withdrawn, it will return the appropriate number of notes, rather than simply `true`
-
-*Eg. 1 `withdraw(15)` should return `3`, since three $5 notes makes $15*
-
-### Step 3
-
-In programming, an `array` is basically a collection of things. It's like a list.
-
-Rather than returning the number of notes, modify your code so that it returns an array of notes (in this case, all $5's).
-
-*Eg. 1 `withdraw(15)` should return an array, `[5, 5, 5]`*
-
-*note: you should still return false for amounts that can't be returned.*
-
 **Starting Code & Tests:** Create a file called `atm.rb`, and paste the following code into it. This contains the shell of your `withdraw()` function, along with tests. Your task is to modify the code so all tests pass.
 
 ```ruby
@@ -69,6 +53,64 @@ require 'minitest/autorun'
 
 # BELOW ARE THE TESTS FOR AUTOMATICALLY CHECKING YOUR SOLUTION.
 # THESE NEED TO BE REPLACED AFTER EACH STEP.
+describe 'atm' do
+  [
+    [-1, false],
+    [0, false],
+    [1, false],
+    [43, false],
+    [17, false],
+    [5, true],
+    [20, true],
+    [35, true],
+  ].each do |input, expected|
+    it "should return #{expected} when $#{input} is withdrawn" do
+      withdraw(input).must_equal expected
+    end
+  end
+end
+```
+
+### Step 2
+
+Now, modify your function so that if the amount *can* be withdrawn, it will return the appropriate number of notes, rather than simply `true`
+
+*Eg. 1 `withdraw(15)` should return `3`, since three $5 notes makes $15*
+
+**Tests:**
+
+```ruby
+describe 'atm' do
+  [
+    [-1, false],
+    [0, false],
+    [1, false],
+    [43, false],
+    [7, false],
+    [5, 1],
+    [20, 4],
+    [35, 7],
+  ].each do |input, expected|
+    it "should return #{expected} when $#{input} is withdrawn" do
+      withdraw(input).must_equal expected
+    end
+  end
+end
+```
+
+### Step 3
+
+In programming, an `array` is basically a collection of things. It's like a list.
+
+Rather than returning the number of notes, modify your code so that it returns an array of notes (in this case, all $5's).
+
+*Eg. 1 `withdraw(15)` should return an array, `[5, 5, 5]`. (That's basically a collection of three $5 notes)*
+
+*note: you should still return false for amounts that can't be returned.*
+
+**Tests:**
+
+```ruby
 describe 'atm' do
   [
     [-1, false],
@@ -112,7 +154,7 @@ Now imagine the ATM returns only $10 notes. Modify your function to accommodate 
 
 *Eg. 2 `withdraw(15)` should return `false`, because $15 cannot be made up of $10 notes*
 
-**Tests:** Replace the tests from the previous step with the tests below, and modify your code until these new tests pass.
+**Tests:**
 
 ```ruby
 describe 'atm' do
@@ -142,7 +184,7 @@ end
 Imagine your ATM now holds $5 and $10. People want as few notes as possible.
 *eg. `withdraw(25)` should return `[10, 10, 5]`*
 
-**Tests:** Replace the tests from the previous step with the tests below, and modify your code until these new tests pass.
+**Tests:**
 
 ```ruby
 describe 'atm' do
@@ -179,7 +221,7 @@ Your ATM now holds $20, $10 and $5 notes. Modify your function to accommodate th
 
 *Note that at this point, each higher denomination can be evenly divided by each lower denomination - eg. $20 / $10 = 2. Things get much trickier when that's not the case (eg, $50's and $20's). For this step, we'll intentionally not deal with this case to make it easier.*
 
-**Tests:** Replace the tests from the previous step with the tests below, and modify your code until these new tests pass.
+**Tests:**
 
 ```ruby
 describe 'atm' do
@@ -211,7 +253,7 @@ To remove the first element off an array: `my_array.shift`. Eg, `[10, 20, 30].sh
 
 If your function calls a sub-function, keep in mind that Ruby has no concept of 'pass by value'. Variables are always a reference to an object.
 
-### Step 3/4 Discussion Points
+### Step 5/6 Discussion Points
 * How many lines did you have to change, going from 3 to 4?
 * What if we changed the available notes again (but still intentionally not dealing with the trickier case mentioned above)? Eg. $100, $20 and $10 notes - Could you do this in a single line?
 * Refactor your code so that you could change to $100, $20 and $10 notes, by changing a single line.

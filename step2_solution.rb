@@ -3,12 +3,13 @@
 # Otherwise, return the correct number of notes - eg. withdraw(15) would return 3
 
 def withdraw(amount)
+  note_available = 5
   if amount <= 0 # this deals with some of the situations...
     return false
-  elsif amount % 5 > 0
+  elsif amount % note_available > 0
     return false
   else
-    return amount / 5
+    return amount / note_available
   end
 end
 
