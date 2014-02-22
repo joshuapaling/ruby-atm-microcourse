@@ -62,7 +62,7 @@ describe 'atm' do
 end
 ```
 
-**Tips for this step**
+**Tips for getting tests green**
 
 The modulus operator, `%` gets the remainder of a division. Eg, `9 % 4` results in `1` (nine divided by four has a remainder of 1)
 
@@ -93,7 +93,7 @@ describe 'atm' do
 end
 ```
 
-**Tips for this step**
+**Tips for getting tests green**
 
 The `/` operator performs a division. Eg. if you wanted to get half your age, and store it in a variable, you'd do this:
 
@@ -101,6 +101,33 @@ The `/` operator performs a division. Eg. if you wanted to get half your age, an
 my_age = 28
 half_my_age = my_age / 2
 ```
+
+**Refactor tips and discussion points**
+
+In programming, 'Magic Numbers' are a bad thing (don't be fooled by the name!). They refer to a hard-coded value that just sort of *appears* out of thin air, with no clear explanation of what that particular number represents.
+
+Consider how easy / hard it is to understand the following code snippets:
+
+```ruby
+# BAD - magic number!
+balance = balance * 4.45
+```
+
+```ruby
+# BAD - nondescript variable name is not much better!
+value = 4.45
+balance = balance * value
+```
+
+```ruby
+# GOOD - isn't this much easier to understand?
+interest_rate = 4.45
+balance = balance * interest_rate
+```
+
+Magic numbers are particularly troublesome when the same hard-coded value appears in multiple places.
+
+Did you use magic numbers? Can you refactor your code to eliminate them?
 
 ### Step 3
 
@@ -131,7 +158,7 @@ describe 'atm' do
 end
 ```
 
-**Tips for this step**
+**Tips for getting tests green**
 
 `[]` defines an empty array. `[10, 20]` defines an array with two elements (10 and 20)
 
@@ -175,7 +202,8 @@ describe 'atm' do
 end
 ```
 
-### Step 3/4 Discussion Points
+**Refactor tips and discussion points**
+
 * How many lines did you have to change? What if we now restricted it to another single denomination (eg. $20 notes)? How many lines would you have to change this time?
 * Refactor your code so such that you could switch to only $20 notes, by changing a single line
 * Did you initially use magic numbers?
@@ -205,7 +233,7 @@ describe 'atm' do
 end
 ```
 
-**Tips for this step**
+**Tips for getting tests green**
 
 The `floor` method rounds a number down to the nearest whole integer.
 
@@ -245,7 +273,7 @@ describe 'atm' do
 end
 ```
 
-**Tips for this step**
+**Tips for getting tests green**
 
 To tell if an array is empty: `my_array.empty?`
 
@@ -255,9 +283,10 @@ To remove the first element off an array: `my_array.shift`. Eg, `[10, 20, 30].sh
 
 If your function calls a sub-function, keep in mind that Ruby has no concept of 'pass by value'. Variables are always a reference to an object.
 
-### Step 5/6 Discussion Points
+**Refactor tips and discussion points**
+
 * How many lines did you have to change, going from 5 to 6?
-* What if we changed the available notes again (but still intentionally not dealing with the trickier case mentioned above)? Eg. $100, $20 and $10 notes - Could you do this in a single line?
+* What if we made $100 notes available, aswell? Could you do this in a single line?
 * Refactor your code so that you could change to $100, $20 and $10 notes, by changing a single line.
 * What is the most future-proof solution?
 
