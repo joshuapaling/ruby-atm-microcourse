@@ -2,31 +2,38 @@
 
 *Created by Joshua Paling, [@joshuapaling](https://twitter.com/joshuapaling)*
 
-This is the last exercise of the day, and it's intended to challenge you. We'll be using TDD (which you learned about earlier), but all the tests have been written for you, already.
+This is the last exercise of the day, and it's intended to challenge you. We'll be writing a function to handle withdrawing money from an ATM.
 
-We'll be writing a function to handle withdrawing money from an ATM. It will accept an amount, and return either an `array` representing the notes to return, or `false` if that amount cannot be made up of the available notes.
+We'll be pairing, and using TDD (which you learned about earlier), but all the tests have been written for you, already, so you can focus on the code itself.
 
-Hopefully this provides you with the thrill of writing your own original code to solve a problem.
+You'll also get a little experience with the 'red, green, refactor' cycle:
+*red: * your tests fail
+*you write some less than perfect code*
+*green: * your tests now pass
+*you go back and refine the code you wrote*
+*refactor: *
 
-**Beginners**, don't worry - we'll start simple.
-**Advanced devs** - don't worry, we'll ramp things up pretty steeply!
+We'll start simple, but ramp the difficulty up pretty steeply toward the end!
 
 ### Workflow
+
 Each step has pre-written tests, to verify your code works. For each step, you'll take the following actions:
 
-a) Copy the tests for that step, and paste them over the top of the previous tests.
+a) *Red:* Copy the tests for that step, and paste them over the top of the previous tests.
 
-b) Modify your code, and re-run the tests, until all tests pass. *Note: some steps have tips at the bottom - make sure to read those.*
+b) *Green:* Modify your code, and re-run the tests, until all tests pass. *Note: some steps have tips at the bottom - make sure to read those.*
 
-c) Some steps have discussion points. Discuss them - they'll help you moving forward.
+c) *Refactor:* See if there are any edits you can make to ensure your code is as clean and easy to understand as possible. *(You might like to call a mentor over to see if they have any tips)*
 
-d) Repeat.
+d) Some steps have discussion points. Discuss them - they'll help you moving forward.
+
+e) Repeat.
 
 ### To run the tests:
 
 **Using Sublime Text:** With your solution open, Press command-B (Or select Tools -> Build)
 
-**Using console:** `cd /path/to/directory/` and then run `ruby atm.rb` *(assuming your file is called atm.rb)*
+**Using console:** `cd /path/to/directory/` and then run `ruby atm.rb`
 
 ### Step 1
 
