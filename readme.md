@@ -2,20 +2,25 @@
 
 *Created by Joshua Paling, [@joshuapaling](https://twitter.com/joshuapaling)*
 
+This is the last exercise of the day, and it's intended to challenge you. We'll be using TDD (which you learned about earlier), but all the tests have been written for you, already.
+
 We'll be writing a function to handle withdrawing money from an ATM. It will accept an amount, and return either an `array` representing the notes to return, or `false` if that amount cannot be made up of the available notes.
 
-This tutorial consists of 4 steps, and 2 challenge steps. We'll start simple, then add more challenging requirements with each step.
+Hopefully this provides you with the thrill of writing your own original code to solve a problem.
+
+**Beginners**, don't worry - we'll start simple.
+**Advanced devs** - don't worry, we'll ramp things up pretty steeply!
 
 ### Workflow
-Each step has pre-built tests, which you can use to verify your code works as expected. For each step, you'll take the following actions:
+Each step has pre-written tests, to verify your code works. For each step, you'll take the following actions:
 
-a) Copy the tests for that step into your code, replacing the tests from the previous step.
+a) Copy the tests for that step, and paste them over the top of the previous tests.
 
 b) Modify your code, and re-run the tests, until all tests pass. *Note: some steps have tips at the bottom - make sure to read those.*
 
-c) If there are discussion points, spend a few minutes talking about them with your pairing partner.
+c) Some steps have discussion points. Discuss them - they'll help you moving forward.
 
-d) Move on to the next step and repeat.
+d) Repeat.
 
 ### To run the tests:
 
@@ -25,11 +30,27 @@ d) Move on to the next step and repeat.
 
 ### Step 1
 
-Imagine an ATM that holds only $5 notes. Write a function to return an array of $5 notes, for a given amount.
+Imagine an ATM that holds only $5 notes. Write a function that returns `true` if an amount can be returned, and `false` otherwise.
+
+*Eg. 1 `withdraw(15)` should return `true`*
+
+*Eg. 2 `withdraw(18)` should return `false`, because $18 cannot be made up of $5 notes*
+
+### Step 2
+
+Now, modify your function so that if the amount *can* be withdrawn, it will return the appropriate number of notes, rather than simply `true`
+
+*Eg. 1 `withdraw(15)` should return `3`, since three $5 notes makes $15*
+
+### Step 3
+
+In programming, an `array` is basically a collection of things. It's like a list.
+
+Rather than returning the number of notes, modify your code so that it returns an array of notes (in this case, all $5's).
 
 *Eg. 1 `withdraw(15)` should return an array, `[5, 5, 5]`*
 
-*Eg. 2 `withdraw(18)` should return `false`, because $18 cannot be made up of $5 notes*
+*note: you should still return false for amounts that can't be returned.*
 
 **Starting Code & Tests:** Create a file called `atm.rb`, and paste the following code into it. This contains the shell of your `withdraw()` function, along with tests. Your task is to modify the code so all tests pass.
 
@@ -84,7 +105,7 @@ remainder = 13 % 5 # remainder is 2
 remainder.times { my_array << 5 } # now my_array contains [20, 30, 5, 5, 5]
 ```
 
-### Step 2
+### Step 4
 Now imagine the ATM returns only $10 notes. Modify your function to accommodate this.
 
 *Eg. 1 `withdraw(20)` should return an array, `[10, 10]`*
@@ -117,7 +138,7 @@ end
 * Why are magic numbers bad?
 * What is the most future-proof solution? Why?
 
-### Step 3
+### Step 5
 Imagine your ATM now holds $5 and $10. People want as few notes as possible.
 *eg. `withdraw(25)` should return `[10, 10, 5]`*
 
@@ -153,10 +174,10 @@ my_number = (25/10).floor
 # my_number now contains 2, because 25/10 = 2.5, and floor will round that down to 2.
 ```
 
-### Step 4
-Imagine your ATM now holds $20, $10 and $5 notes. Modify your function to accommodate this. (If your function gets long, feel free to break it up).
+### Step 6
+Your ATM now holds $20, $10 and $5 notes. Modify your function to accommodate this.
 
-*Note that at this point, each higher denomination can be evenly divided by each lower denomination - eg. $20 / $10 = 2. Things get much trickier when that's not the case (eg, $50 and $20). For this step, we'll intentionally not deal with this case to make it easier.*
+*Note that at this point, each higher denomination can be evenly divided by each lower denomination - eg. $20 / $10 = 2. Things get much trickier when that's not the case (eg, $50's and $20's). For this step, we'll intentionally not deal with this case to make it easier.*
 
 **Tests:** Replace the tests from the previous step with the tests below, and modify your code until these new tests pass.
 
@@ -196,73 +217,6 @@ If your function calls a sub-function, keep in mind that Ruby has no concept of 
 * Refactor your code so that you could change to $100, $20 and $10 notes, by changing a single line.
 * What is the most future-proof solution?
 
-## Extra Challenges
-
-### Step 5a - Extra Challenge
-Let's tackle the tricker case we mentioned, where each note isn't necessarily a multiple of the next lowest note. For this step, we'll assume we have only $50 and $20 notes available - but we'll be mixing it up more later, so try to keep your code future-proof!
-
-**Hint:** Before writing any code, consider withdrawing the following amounts: $60, $80, $110, $160 - what should it return? What process does it need to go through to arrive at that result? What will your existing code try to do? Consider writing a brief solution in pseudo-code, first.
-
-Note: This step could be solved with recursion. If you've never used recursion, you may like to ask a mentor about it. *(Mentors: you might like to use fibonacci as an example. Touch on the problem of infinite nesting, and the need for an exit condition.)*
-
-**Tests:** Replace the tests from the previous step with the tests below, and modify your code until these new tests pass.
-
-```ruby
-describe 'atm' do
-  [
-    [-1, false],
-    [0, false],
-    [7, false],
-    [29, false],
-    [135, false],
-    [70, [50, 20]],
-    [80, [20, 20, 20, 20]],
-    [90, [50, 20, 20]],
-    [120, [50, 50, 20]],
-    [130, [50, 20, 20, 20, 20]],
-    [160, [50, 50, 20, 20, 20]],
-    [200, [50, 50, 50, 50]]
-  ].each do |amount, expected|
-    it "should return #{expected} when $#{input} is withdrawn" do
-      withdraw(amount).must_equal expected
-    end
-  end
-end
-```
-
-### Step 5b - Extra Challenge
-* Read, but don't do, step 6. If you're step 5 code is great, it should only take a few seconds to complete step 6. Can you see why?
-* Refactor your step 5 code, to make it as future-ready as possible for step 6.
-
-### Step 6 - Extra Challenge
-Imagine you're now able to pass in a second parameter (an array), specifying the denominations of (Australian) note available for that withdrawal.
-
-*Eg. atm(220, [50, 20, 5]) says to withdraw $220, with only $50, $20 and $5 notes available.*
-
-Assume people prefer to get the highest possible denomination of note - eg, withdraw(65, [50, 20, 5]) should return [50, 5, 5, 5] rather than [20, 20, 20, 5], because $50 is highest.
-
-*(If you've re-factored your step 5 code well enough, this step should only take a few seconds!)*
-
-**Tests:** Replace the tests from the previous step with the tests below, and modify your code until these new tests pass.
-
-```ruby
-describe 'atm' do
-  [
-    [-1, [20, 10], false],
-    [0, [100, 50, 20], false],
-    [50, [100, 20], false],
-    [120, [50, 10, 5], [50, 50, 10, 10]],
-    [65, [50, 20, 10, 5], [50, 10, 5]],
-    [80, [50, 20, 5], [50, 20, 5, 5]],
-    [130, [100, 50, 20, 10, 5], [100, 20, 10]],
-    [160, [50, 20], [50, 50, 20, 20, 20]],
-  ].each do |amount, denoms, expected|
-    it "should convert the number #{amount} with #{denoms} to #{expected}" do
-      withdraw(amount, denoms).must_equal expected
-    end
-  end
-end
-```
 
 ### Final Discussion Points
 * Given a particular solution *works*, what makes it 'good' or 'bad' code?
