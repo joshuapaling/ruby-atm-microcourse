@@ -4,30 +4,21 @@
 
 This is the last exercise of the day, and it's intended to challenge you. We'll be writing a function to handle withdrawing money from an ATM.
 
-We'll be pairing, and using TDD (which you learned about earlier), but all the tests have been written for you, already, so you can focus on the code itself.
+We'll be pairing, and using TDD (which you learned about earlier), but all the tests have been pre-written for you, so you can focus on the code itself.
 
-You'll also get a little experience with the 'red, green, refactor' cycle:
-*red: * your tests fail
-*you write some less than perfect code*
-*green: * your tests now pass
-*you go back and refine the code you wrote*
-*refactor: *
+You'll also get a little experience with the *'red, green, refactor'* cycle of TDD.
 
 We'll start simple, but ramp the difficulty up pretty steeply toward the end!
 
 ### Workflow
 
-Each step has pre-written tests, to verify your code works. For each step, you'll take the following actions:
+For each step, you'll take the following actions:
 
-a) *Red:* Copy the tests for that step, and paste them over the top of the previous tests.
+**a) Red:** Paste in the pre-written tests for that step. Check which ones fail.
 
-b) *Green:* Modify your code, and re-run the tests, until all tests pass. *Note: some steps have tips at the bottom - make sure to read those.*
+**b) Green:** Modify your code until all tests pass.
 
-c) *Refactor:* See if there are any edits you can make to ensure your code is as clean and easy to understand as possible. *(You might like to call a mentor over to see if they have any tips)*
-
-d) Some steps have discussion points. Discuss them - they'll help you moving forward.
-
-e) Repeat.
+**c) Refactor:** See if there are any edits you can make to ensure your code is as clean and easy to understand as possible. Some steps have discussion points. Discuss them with your pair - they'll help you moving forward.
 
 ### Step 1
 
@@ -45,7 +36,6 @@ def withdraw(amount)
     return false
   end
   # ToDo: figure out this bit
-  return []
 end
 
 # import required testing libraries
@@ -72,11 +62,15 @@ describe 'atm' do
 end
 ```
 
+**Tips for this step**
+
+The modulus operator, `%` gets the remainder of a division. Eg, `9 % 4` results in `1` (nine divided by four has a remainder of 1)
+
 ### Step 2
 
 Now, modify your function so that if the amount *can* be withdrawn, it will return the appropriate number of notes, rather than simply `true`
 
-*Eg. 1 `withdraw(15)` should return `3`, since three $5 notes makes $15*
+*Eg. `withdraw(15)` should return `3`, since three $5 notes makes $15*
 
 **Tests:**
 
@@ -99,15 +93,24 @@ describe 'atm' do
 end
 ```
 
+**Tips for this step**
+
+The `/` operator performs a division. Eg. if you wanted to get half your age, and store it in a variable, you'd do this:
+
+```ruby
+my_age = 28
+half_my_age = my_age / 2
+```
+
 ### Step 3
 
 In programming, an `array` is basically a collection of things. It's like a list.
 
 Rather than returning the number of notes, modify your code so that it returns an array of notes (in this case, all $5's).
 
-*Eg. 1 `withdraw(15)` should return an array, `[5, 5, 5]`. (That's basically a collection of three $5 notes)*
+*Eg. `withdraw(15)` should return an array, `[5, 5, 5]`. (That's basically a collection of three $5 notes)*
 
-*note: you should still return false for amounts that can't be returned.*
+*Note: you should still return false for amounts that can't be returned.*
 
 **Tests:**
 
@@ -128,13 +131,11 @@ describe 'atm' do
 end
 ```
 
-** Tips for this step**
-
-The modulus operator, `%` gets the remainder of a division. So, `5 % 2 == 1` is true (five divided by two has a remainder of 1)
+**Tips for this step**
 
 `[]` defines an empty array. `[10, 20]` defines an array with two elements (10 and 20)
 
-`<<` the shovel operator adds an element to an array. Eg. `[10, 20] << 30` will add 30 to the array, resulting in `[10, 20, 30]`
+The shovel operator (`<<`) adds an element to an array. Eg. `[10, 20] << 30` will add 30 to the array, resulting in `[10, 20, 30]`
 
 the `times` method executes a block of code several times - eg. `5.times { puts 'hello' }` will print 'hello' 5 times.
 
@@ -204,7 +205,7 @@ describe 'atm' do
 end
 ```
 
-** Tips for this step**
+**Tips for this step**
 
 The `floor` method rounds a number down to the nearest whole integer.
 
@@ -244,7 +245,7 @@ describe 'atm' do
 end
 ```
 
-** Tips for this step**
+**Tips for this step**
 
 To tell if an array is empty: `my_array.empty?`
 
@@ -255,7 +256,7 @@ To remove the first element off an array: `my_array.shift`. Eg, `[10, 20, 30].sh
 If your function calls a sub-function, keep in mind that Ruby has no concept of 'pass by value'. Variables are always a reference to an object.
 
 ### Step 5/6 Discussion Points
-* How many lines did you have to change, going from 3 to 4?
+* How many lines did you have to change, going from 5 to 6?
 * What if we changed the available notes again (but still intentionally not dealing with the trickier case mentioned above)? Eg. $100, $20 and $10 notes - Could you do this in a single line?
 * Refactor your code so that you could change to $100, $20 and $10 notes, by changing a single line.
 * What is the most future-proof solution?
